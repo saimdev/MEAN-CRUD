@@ -1,0 +1,39 @@
+<style>
+    a{
+      text-decoration: none;
+    }
+  </style>
+  <div>
+    <form #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)">
+      <input type="text" ngModel name="name" id="name" placeholder="Enter name">
+      <br><br>
+      <input type="email" ngModel name="email" id="email" placeholder="Enter email">
+      <br><br>
+      <input type="password" ngModel name="password" id="password" placeholder="Enter password">
+      <br><br>
+      <button type="submit">Add New Record</button>
+      <br><br><br><br>
+    </form>
+    <table border=1>
+      <thead>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Password</td>
+          <td>Update</td>
+          <td>Delete</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user._id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td><button><a [routerLink]="['/update', user._id]">Update</a></button></td>
+          <td><button (click)="deleteUserData(user._id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  

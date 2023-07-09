@@ -1,0 +1,14 @@
+<div *ngFor="let user of userData">
+    <form #usersUpdateForm="ngForm" (ngSubmit)="updateUserData(user._id, usersUpdateForm.value)">
+      <br>
+      <input type="text" [(ngModel)]="user.name" name="name" id="name" placeholder="Enter name">
+      <br><br>
+      <input type="email" [(ngModel)]="user.email" name="email" id="email" placeholder="Enter email">
+      <br><br>
+      <input type="text" [(ngModel)]="user.password" name="password" id="password" placeholder="Enter password">
+      <br><br>
+      <button type="submit">Update Record</button>
+      <br><br><br><br>
+    </form>
+  </div>
+  
